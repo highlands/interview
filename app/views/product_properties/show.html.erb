@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @product_property.value %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_property.product %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @product_property.property %>
+</p>
+
+<%= link_to 'Edit', edit_product_property_path(@product_property) %> |
+<%= link_to 'Back', product_properties_path %>
