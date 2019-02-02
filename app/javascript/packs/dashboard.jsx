@@ -34,17 +34,28 @@ class Dashboard extends Component {
   render(){
     
     let autoCompleteList = this.state.autoCompleteResults.map((response, index) => {
-      return <div key={index}>
-        <h2>{response.name}</h2>
+      return <div class="col-md-4" key={index}>
+        <h3>{response.name}</h3>
         <p>UPC: {response.upc}</p>
         <p>Available on: {response.available_on}</p>
+        <p>Properties:</p>
+        <ul>
+        {
+          response.product_properties.map((item, index) => {
+            return <li key={index}>{item.property}: {item.product_property_value}</li>
+          })
+        }
+        </ul>
+        
       </div>
     })
     
     return (
-      <div>
+      <div class="container">
         <input ref={ (input) => { this.searchBar = input } } value={ this.state.term } onChange={ this.getAutoCompleteResults.bind(this) } type="text" placeholder="Search..." />
+        <div class="row">
         { autoCompleteList }
+        </div>
       </div>
     )
   }
