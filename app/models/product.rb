@@ -1,7 +1,10 @@
 class Product < ApplicationRecord
   
+  #Set references 
+  has_many :product_properties
+  
   #Validate Name uniqueness
-  validates :name, uniqueness: true {message: "Product name is already in use"}
+  validates :name, uniqueness: {message: "Product name is already in use"}
   
   #Validate Name length
   validates :name, length: {maximum: 1024, message: "Product name must be 1024 characters or less"}
@@ -10,7 +13,7 @@ class Product < ApplicationRecord
   validates :upc, numericality: { only_integer: true, message: "UPC must be a number"} 
   
   #Validate UPC uniqueness
-  validates :upc, uniqueness: true {message: "UPC is already in use"}
+  validates :upc, uniqueness: {message: "UPC is already in use"}
   
   
   #Validate that UPC is 10, 12 or 13 digits long
