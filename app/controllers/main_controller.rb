@@ -4,7 +4,7 @@ class MainController < ApplicationController
   def index; end
   
   def search
-    @products = Product.ransack(name_cont: params[:q]).result(distinct: true).limit(5)
+    @products = Product.ransack(name_cont: params[:q]).result(distinct: true).limit(20)
   end
   
   private
