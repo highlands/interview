@@ -53,7 +53,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'webpacker'
 gem 'haml'
 gem 'ransack'
-
-#Bootstrap
-gem 'bootstrap'
-gem 'jquery-rails'
