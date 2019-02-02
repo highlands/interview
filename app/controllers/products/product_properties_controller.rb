@@ -1,5 +1,4 @@
-class ProductPropertiesController < ApplicationController
-  before_action :set_product_property, only: [:show, :edit, :update, :destroy]
+class Products::ProductPropertiesController < ApplicationController
 
   # GET /product_properties
   # GET /product_properties.json
@@ -14,6 +13,7 @@ class ProductPropertiesController < ApplicationController
 
   # GET /product_properties/new
   def new
+    @product = Product.find(params[:product_id])
     @product_property = ProductProperty.new
   end
 
@@ -24,15 +24,17 @@ class ProductPropertiesController < ApplicationController
   # POST /product_properties
   # POST /product_properties.json
   def create
+    @product = Product.find(params[:product_id])
     @product_property = ProductProperty.new(product_property_params)
+    @product_property.product = @product
 
     respond_to do |format|
       if @product_property.save
-        format.html { redirect_to @product_property, notice: 'Product property was successfully created.' }
-        format.json { render :show, status: :created, location: @product_property }
+        format.html { redirect_to @product, notice: 'Product property was successfully created.' }
+        format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
-        format.json { render json: @product_property.errors, status: :unprocessable_entity }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
