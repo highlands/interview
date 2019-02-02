@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   
   #Set references 
-  has_many :product_properties
+  has_many :product_properties, dependent: :destroy
   
   #Validate Name uniqueness
   validates :name, uniqueness: {message: "Product name is already in use"}

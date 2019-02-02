@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
   resources :properties
-  resources :product_properties
-  resources :products
+  
+  resources :products do
+    resources :product_properties, except: [:index], controller: 'products/product_properties'
+  end
 
   
   root to: 'dashboard#index'

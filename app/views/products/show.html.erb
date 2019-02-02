@@ -18,5 +18,15 @@
   <%= @product.available_on %>
 </p>
 
+<div class="properties">
+  <p><strong>Properties:</strong></p>
+  <ul>
+  <% @product_properties.each do |product_property| %>
+    <li><%= product_property.property.name %>: <%= product_property.value %></li>
+  <% end %>
+  </ul>
+  
+</div>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
