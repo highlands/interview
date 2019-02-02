@@ -7,12 +7,12 @@
 
 <p>
   <strong>Product:</strong>
-  <%= @product_property.product %>
+  <%= @product_property.product.name %>
 </p>
 
 <p>
   <strong>Property:</strong>
-  <%= @product_property.property %>
+  <%= @product_property.property.name %>
 </p>
 
 <%= link_to 'Edit', edit_product_property_path(@product_property) %> |
