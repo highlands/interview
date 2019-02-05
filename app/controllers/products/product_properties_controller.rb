@@ -15,6 +15,9 @@ class Products::ProductPropertiesController < ApplicationController
   def new
     @product = Product.find(params[:product_id])
     @product_property = ProductProperty.new
+    
+    #https://gorails.com/forum/how-do-i-create-a-parent-record-from-the-child-when-the-parent-doesn-t-exist
+    @product_property.build_property
   end
 
   # GET /product_properties/1/edit
@@ -27,9 +30,16 @@ class Products::ProductPropertiesController < ApplicationController
     @product = Product.find(params[:product_id])
     @product_property = ProductProperty.new(product_property_params)
     @product_property.product = @product
+    
+    #https://gorails.com/forum/how-do-i-create-a-parent-record-from-the-child-when-the-parent-doesn-t-exist
+    if params[:product_product_property][:property_name]
+      parent_property = @properties.find_or_create_by(name: params[:product_property][:property_name])
+      @product_property.property = parent_property
+    end
 
     respond_to do |format|
       if @product_property.save
+        @property = @product_property.property
         format.html { redirect_to @product, notice: 'Product property was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -71,6 +81,6 @@ class Products::ProductPropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_property_params
-      params.require(:product_property).permit(:value, :product_id, :property_id)
+      params.require(:product_property).permit(:value, :product_id, :property_id, property_attributes: [:name, :id])
     end
 end

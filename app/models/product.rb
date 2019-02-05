@@ -1,8 +1,9 @@
 class Product < ApplicationRecord
   
-  #Set references 
-  has_many :product_properties, dependent: :destroy
-  accepts_nested_attributes_for :product_properties
+  #Set references
+  #attr_accessible :name, :upc, :available_on, :product_properties_attributes
+  has_many :product_properties, inverse_of: :product
+  accepts_nested_attributes_for :product_properties, allow_destroy: true
   
   #Validate Name uniqueness
   validates :name, uniqueness: {message: "Product name is already in use"}
