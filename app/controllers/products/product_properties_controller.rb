@@ -17,7 +17,7 @@ class Products::ProductPropertiesController < ApplicationController
     @product_property = ProductProperty.new
     
     #https://gorails.com/forum/how-do-i-create-a-parent-record-from-the-child-when-the-parent-doesn-t-exist
-    @product_property.build_property
+    @product_property.properties.build
   end
 
   # GET /product_properties/1/edit
@@ -31,10 +31,15 @@ class Products::ProductPropertiesController < ApplicationController
     @product_property = ProductProperty.new(product_property_params)
     @product_property.product = @product
     
+    
+    
     #https://gorails.com/forum/how-do-i-create-a-parent-record-from-the-child-when-the-parent-doesn-t-exist
     if params[:product_product_property][:property_name]
       parent_property = @properties.find_or_create_by(name: params[:product_property][:property_name])
       @product_property.property = parent_property
+      
+    else
+      abort("Params don't match the IF statement")
     end
 
     respond_to do |format|
@@ -80,7 +85,10 @@ class Products::ProductPropertiesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def product_property_params
-      params.require(:product_property).permit(:value, :product_id, :property_id, property_attributes: [:name, :id])
+    def product_product_property_params
+      params.require(:product_product_property).permit(:id, :value, :product_id, :property_id, properties_attributes: [:id, :name, :_destroy])
+      
+      #Trying it with all params enabled
+      #params.require(:product_property).permit!
     end
 end

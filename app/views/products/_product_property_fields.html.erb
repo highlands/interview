@@ -1,12 +1,12 @@
 <div class="row nested-fields">
-  
-  <div class="col-sm-6">
-    <div class="form-group field">
-      <%= f.label :property_id %>
-      <%= f.text_field :property_id, class: 'form-control' %>
+  <%= f.fields_for :property, Property.new do |property_fields| %>
+    <div class="col-sm-6">
+      <div class="form-group field">
+        <%= property_fields.label :name %>
+        <%= property_fields.text_field :name, class: 'form-control' %>
+      </div>
     </div>
-  </div>
-
+  <% end %>
   <div class="col-sm-6">
     <div class="form-group field">
       <%= f.label :value %>

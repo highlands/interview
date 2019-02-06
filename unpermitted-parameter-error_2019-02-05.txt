@@ -1,0 +1,18 @@
+Parameters: {"utf8"=>"true",
+	"authenticity_token"=>"IVaOm9ot19BwmhhUISL2XrJ8Hyqk8KVJILHxOhKw/3rsvT+ofFnS0A4Un+FPsJ5B41D0TmuEtODESow+HwZOQA==",
+	"product"=>{"name"=>"Testing controller logic 1258pm",
+	"upc"=>"8888888888",
+	"available_on(1i)"=>"2021",
+	"available_on(2i)"=>"2",
+	"available_on(3i)"=>"5",
+	"available_on(4i)"=>"17",
+	"available_on(5i)"=>"58",
+	"product_properties_attributes"=>{
+		"0"=>{
+			"property_attributes"=>{"name"=>"Color"}, 
+			"value"=>"Red"}
+			}
+		}, 
+	"commit"=>"Create Product"}
+
+Unpermitted parameter: :property_attributes
