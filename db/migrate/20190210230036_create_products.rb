@@ -2,7 +2,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
   def change
     create_table :products do |t|
       t.string :name, limit: 1024
-      t.string :upc, limit: 10
+      t.string :upc, limit: 13
       t.datetime :available_on
 
       t.timestamps

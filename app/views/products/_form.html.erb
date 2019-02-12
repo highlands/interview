@@ -1,8 +1,7 @@
-<%= form_with(model: product, local: true) do |f| %>
-
+<%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <h4><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h4>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
       <% product.errors.full_messages.each do |message| %>
@@ -12,28 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field field-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, id: :product_name, class: 'form-control' %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :product_name %>
   </div>
 
-  <div class="field field-group">
-    <%= f.label :upc %>
-    <%= f.text_field :upc, id: :product_upc, class: 'form-control' %>
+  <div class="field">
+    <%= form.label :upc %>
+    <%= form.text_field :upc, id: :product_upc %>
   </div>
 
-  <div class="field field-group">
-    <%= f.label :available_on %>
-    <%= f.datetime_select :available_on, id: :product_available_on, class: 'form-control' %>
+  <div class="field">
+    <%= form.label :available_on %>
+    <%= form.datetime_select :available_on, id: :product_available_on %>
   </div>
 
-  <%= f.fields_for :product_properties do |builder| %>
-    <%= render 'product_property_fields', f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Product Property", f, :product_properties %>
+  <fieldset>
+    <%= form.fields_for :product_properties do |f| %>
+      <div class="field">
+        <%= f.label :value %>
+        <%= f.text_field :value, id: :value %>
+      </div>
+      <%= f.fields_for :property do |f| %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, id: :name %>
+        </div>
+      <% end %>
+    <% end %>
+  </fieldset>
 
   <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= form.submit %>
   </div>
-
 <% end %>

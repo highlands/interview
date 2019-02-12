@@ -1,15 +1,12 @@
 class ProductProperty < ApplicationRecord
+  belongs_to :product, optional: :true
+  belongs_to :property, optional: :true
   
+  accepts_nested_attributes_for :product, :property
   
-  
-  belongs_to :product
-  belongs_to :property
-  
-  accepts_nested_attributes_for :property, :product, allow_destroy: true
-  
-  #validates :property, :presence => true
-  
-  #delegate :name, to: :property, prefix: true
-  #delegate :name=, to: :property, prefix: true
+  #Make properties unique
+  def property_attributes=(attributes)
+    self.property = Property.find_or_create_by(name: attributes[:name])
+  end
   
 end

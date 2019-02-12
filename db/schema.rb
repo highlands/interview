@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190201014906) do
+ActiveRecord::Schema.define(version: 20190210230336) do
 
   create_table "product_properties", force: :cascade do |t|
     t.string "value", limit: 255
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20190201014906) do
 
   create_table "products", force: :cascade do |t|
     t.string "name", limit: 1024
-    t.string "upc", limit: 10
+    t.string "upc", limit: 13
     t.datetime "available_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
