@@ -26,7 +26,7 @@
     <%= form.datetime_select :available_on, id: :product_available_on %>
   </div>
 
-  <fieldset>
+  
     <%= form.fields_for :product_properties do |f| %>
       <div class="field">
         <%= f.label :value %>
@@ -39,7 +39,7 @@
         </div>
       <% end %>
     <% end %>
-  </fieldset>
+  
 
   <div class="actions">
     <%= form.submit %>
