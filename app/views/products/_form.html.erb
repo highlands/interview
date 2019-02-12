@@ -27,17 +27,8 @@
   </div>
 
   
-    <%= form.fields_for :product_properties do |f| %>
-      <div class="field">
-        <%= f.label :value %>
-        <%= f.text_field :value, id: :value %>
-      </div>
-      <%= f.fields_for :property do |f| %>
-        <div class="field">
-          <%= f.label :name %>
-          <%= f.text_field :name, id: :name %>
-        </div>
-      <% end %>
+    <%= form.fields_for :product_properties do |builder| %>
+      <%= render 'product_property_fields', f: builder %>
     <% end %>
   
 

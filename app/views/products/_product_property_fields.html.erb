@@ -1,0 +1,9 @@
+<div class="field">
+  <%= f.label :value %>
+  <%= f.text_field :value, id: :value %>
+</div>
+
+
+<%= f.fields_for :property do |builder| %>
+  <%= render 'property_fields', f: builder %>
+<% end %>
