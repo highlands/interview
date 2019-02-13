@@ -16,11 +16,8 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     
-    #Previous way to generate form fields
+    #Generate form fields
     @product.product_properties.build.build_property
-    
-    #This is simpler, and seems to work
-    #@product.properties << Property.new
     
   end
 
