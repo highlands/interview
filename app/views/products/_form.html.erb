@@ -1,7 +1,8 @@
 <%= form_with(model: product, local: true) do |f| %>
+
   <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <h4><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h4>
 
       <ul>
       <% product.errors.full_messages.each do |message| %>
@@ -11,29 +12,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field-group">
     <%= f.label :name %>
-    <%= f.text_field :name, id: :product_name %>
+    <%= f.text_field :name, id: :product_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field-group">
     <%= f.label :upc %>
-    <%= f.text_field :upc, id: :product_upc %>
+    <%= f.text_field :upc, id: :product_upc, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field-group">
     <%= f.label :available_on %>
-    <%= f.datetime_select :available_on, id: :product_available_on %>
+    <%= f.datetime_select :available_on, id: :product_available_on, class: 'form-control' %>
   </div>
 
-
+  <h4>Properties</h4>
+  
     <%= f.fields_for :product_properties do |builder| %>
       <%= render 'product_property_fields', f: builder %>
     <% end %>
-    <%= link_to_add_fields "Add Property", f, :product_properties, :property %>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= link_to_add_fields "Add Property", f, :product_properties, :property %>
+      </div>
+    </div>
+
  
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

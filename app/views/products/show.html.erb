@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <% if notice %>
+        <div id="notice" class="alert alert-warning"><%= notice %></div>
+      <% end %>
+      <h2>
+        <%= @product.name %>
+      </h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+      <p>
+        <strong>Upc:</strong>
+        <%= @product.upc %>
+      </p>
 
-<p>
-  <strong>Upc:</strong>
-  <%= @product.upc %>
-</p>
+      <p>
+        <strong>Available on:</strong>
+        <%= @product.available_on %>
+      </p>
+      
+      <p><strong>Properties:</strong></p>
+      <% @product.product_properties.each do |product_property| %>
+        <li><%= product_property.property.name %>: <%= product_property.value %></li>
+      <% end %>
 
-<p>
-  <strong>Available on:</strong>
-  <%= @product.available_on %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+      <%= link_to 'Edit', edit_product_path(@product) %> |
+      <%= link_to 'Back', products_path %>
+    </div>
+  </div>
+</div>

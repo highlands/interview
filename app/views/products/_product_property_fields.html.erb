@@ -1,9 +1,13 @@
-<div class="field">
-  <%= f.label :value %>
-  <%= f.text_field :value, id: :value %>
+<div class="row">
+  <div class="col-sm-6">
+    <%= f.fields_for :property do |builder| %>
+      <%= render 'property_fields', f: builder %>
+    <% end %>
+  </div>
+  <div class="col-sm-6">
+    <div class="field-group">
+      <%= f.label :value %>
+      <%= f.text_field :value, id: :value, class: 'form-control' %>
+    </div>
+  </div>
 </div>
-
-
-<%= f.fields_for :property do |builder| %>
-  <%= render 'property_fields', f: builder %>
-<% end %>
