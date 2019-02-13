@@ -4,6 +4,7 @@ The backend is a full CRUD interface for products. Since this was my first proje
 
 ## Software
 **Rails version:** 5.1.6.1
+
 **Database:** sqlite3
 
 ## Instructions
