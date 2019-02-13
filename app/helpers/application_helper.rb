@@ -3,7 +3,7 @@ module ApplicationHelper
     new_object = f.object.send(association).klass.new
 
     if child_association
-      new_object.send(child_association).build #Builds 1 Answer
+      new_object.build_property
     end
 
     id = new_object.object_id
