@@ -15,7 +15,12 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    
+    #Previous way to generate form fields
     @product.product_properties.build.build_property
+    
+    #This is simpler, and seems to work
+    #@product.properties << Property.new
     
   end
 
