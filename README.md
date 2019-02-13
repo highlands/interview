@@ -17,5 +17,6 @@ Since it uses the default sqlite3 database, there is no need to configure an ext
 
 ## Pages
 **Create a Product** &ndash; `localhost:3000/products/new`
+
 **React-powered product list with search** &ndash; `localhost:3000`
 
