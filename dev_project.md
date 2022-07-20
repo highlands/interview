@@ -23,7 +23,7 @@ Your app will provide 2 pages:
 
 ![Product Form](https://i.imgur.com/xShO769.png)
 
-* The Listing page. This page lists the products created (in no particular order) and their details (including property name/value pairs). The Listing page also should contain a search field which dynamically searches product names and updates the listing page with the filtered results using React/Vue/Ember. Ex:
+* The Listing page. This page lists the products created (in no particular order) and their details (including property name/value pairs). The Listing page also should contain a search field which dynamically searches product names and updates the listing page with the filtered results using React/NextJS/Vue. Ex:
 
 ![Product Listing](https://i.imgur.com/2moVl0h.png)
 
