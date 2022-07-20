@@ -29,10 +29,10 @@ Your app will provide 2 pages:
 
 ## Guidelines
 
-* **Your app must be developed using Ruby on Rails (>= 5.0).** or Node.js aso the backend
+* **Your app must be developed using Ruby on Rails (>= 5.0).** or Node.js as the backend
 * You may use a database of your choice.
-* The search functionality on the listing page **must be** implemented using React/NextJS/Vue/Ember.
-* The Product Create page can be developed using rails templating engine or React/NextJS/Vue/Ember. **It's completely up to you to choose.** There is no penalty for not using React/Vue/Ember for this development section.
+* The search functionality on the listing page **must be** implemented using React/NextJS/Vue.
+* The Product Create page can be developed using rails templating engine or React/NextJS/Vue. **It's completely up to you to choose.** There is no penalty for not using React/NextJS/Vue for this development section.
 * The forms **do not** need to be styled as shown in the example images. You may leave the pages unstyled using only simple html tags if you wish to.
 * There is no need to implement any sort of authentication on the app.
 * You may use any gem or library in your app to complete your project. Open-source and stackoverflow is your friend.
